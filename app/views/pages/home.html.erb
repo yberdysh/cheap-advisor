@@ -1,0 +1,24 @@
+<p>Find the best restaurants nearby</p>
+<h2>Today we are the <%= Time.now %></h2>
+
+<p>What do you want to eat? </p>
+
+<form action="/restaurants" method="get">
+  <input type="text" name="food_type" placeholder="What kind of food?">
+  <input type="submit">
+</form>
+
+<p>Let's add a restaurant</p>
+
+<form action="/restaurants" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="name">
+  <input type="text" name="address">
+  <input type="submit">
+</form>
+
+<ul>
+  <% @categories.each do |category| %>
+  <li><%= category %></li>
+  <% end %>
+</ul>

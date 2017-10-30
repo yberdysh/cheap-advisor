@@ -1,0 +1,9 @@
+<h1>Lots of restaurants on our app!</h1>
+
+<h2>We have <%= @restaurants.count %> restaurants available</h2>
+
+<ul>
+<% @restaurants.each do |restaurant| %>
+  <li><%= restaurant[:name] %> (<%= restaurant[:address]%>) / <%= restaurant[:category] %> </li>
+<% end %>
+</ul>
