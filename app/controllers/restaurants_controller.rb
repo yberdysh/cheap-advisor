@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
 
-RESTRAURANTS = [
+RESTAURANTS = [
   {name: "Dishoom", address: "Shoreditch, London", category: "indian"},
   {name: "The Dove", address: "Ha, London", category: "pub"}
 ]
@@ -8,9 +8,9 @@ RESTRAURANTS = [
   def index
     @category = params[:food_type]
     if @category
-      @restaurants = RESTRAURANTS.select {|restaurant| restaurant[:category] == @category}
+      @restaurants = RESTAURANTS.select {|restaurant| restaurant[:category] == @category}
     else
-      @restaurants = RESTRAURANTS
+      @restaurants = RESTAURANTS
     end
   end
 
@@ -19,10 +19,7 @@ RESTRAURANTS = [
   end
 
   def show
-    id = params[:id].to_i -1
-    @restaurants = RESTRAURANTS[id]
+    id = params[:id].to_i
+    @restaurant = RESTAURANTS[id]
+  end
 end
-
-# This is what params looks like:
-# {"authenticity_token"=>"BRCSWl8l4+1BhUjfyhwzArctX7GxnMMqyyqe0sfx9A9FAFglxU89OpAaE7vn+FpsyG7bkaks4IGfjecIlJ+gfw==",
-#   "name"=>"food", "address"=>"garbage food", "controller"=>"restaurants", "action"=>"create"}

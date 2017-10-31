@@ -1,6 +1,10 @@
 <p>Find the best restaurants nearby</p>
 <h2>Today we are the <%= Time.now %></h2>
 
+Check out <%= link_to "All our resturants", restaurants_path %>
+
+Give us <%= link_to "some feedback", feedback_path %>
+
 <p>What do you want to eat? </p>
 
 <form action="/restaurants" method="get">
